@@ -72,9 +72,49 @@ function drawHitori(hitori1Numbers, hitori1Blocks, hitori1Rating ){
 
 
 function setupPuzzle(){
+
    for (var i = 0; i < puzzleButtons.length; i++){
       puzzleButtons[i].onclick = switchPuzzle();
    }
+   document.getElementById("check").addEventListener("click")
+   document.getElementById("show").addEventListener("click")
+   var filled = document.querySelectorAll("table#hitoriGrid td.filled");
+
+   for(var i = 0; i < filled.length; i ++){
+      if(filled[i].style.backgroundColor === "rgb(255, 255, 255)");
+      (filled[i].style.fontColor === "rgb(0, 0, 0)");
+      (filled[i].style.border-borderRadius === "0");
+   }
+            puzzleCells[i].onmousedown = setBackground;
+
+            puzzleCells[i].style.cursor = "url(jpf_eraser.png)";
+            puzzleCells[i].style.cursor = "url(jpf_block.png)";
+            puzzleCells[i].style.cursor = "url(jpf_circle.png)";
+
+
+      }
+
+
+   
+
+function switchPuzzle(e){
+   var puzzleID = e.target.id;
+   if(confirm("your will lose all of your work on the puzzle: continue?")){
+   document.getElementById("puzzleTitle").innerHTML = puzzleTitle;
+   switch(puzzleID){
+      case "puzzle1":
+         document.getElementById("puzzle").innerHTML = drawPuzzle(puzzle1);
+         break;
+      case "puzzle2":
+         document.getElementById("puzzle").innerHTML = drawPuzzle(puzzle2);
+         break;
+      case "puzzle3":
+         document.getElementById("puzzle").innerHTML = drawPuzzle(puzzle3);
+         break;
+   }
+   setupPuzzle();
+
+}
 }
 
 
